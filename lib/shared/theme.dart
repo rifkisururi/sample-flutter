@@ -8,6 +8,9 @@ Color redColor = Color.fromARGB(255, 255, 0, 0);
 Color blueColor = Color.fromARGB(255, 0, 204, 255);
 Color greyColor = Color.fromARGB(255, 90, 90, 90);
 
+Color blackBackgroundColor = Color.fromARGB(255, 49, 48, 48);
+
+
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color : blackColor,
 );
