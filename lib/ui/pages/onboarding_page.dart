@@ -12,6 +12,17 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   int currentIndex = 0;
   CarouselController carouselController = CarouselController();
+  List<String> titles = [
+    'Dflash \nMaju jatya',
+    'Indotel \nMurah lancar',
+    'Serpul \nBerkah barokah'
+  ];
+
+  List<String> subtitles = [
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
+    'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+    'when an unknown printer took a galley of type and scrambled it to make a type specimen book'
+  ];
 
   @override
   Widget build(BuildContext context){
@@ -65,7 +76,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Column(
                 children: [
                   Text(
-                    "Server H2h dflash \nMaju jatya",
+                    titles[currentIndex],
                     style: blackTextStyle.copyWith(
                       fontSize: 20,
                       fontWeight: semiBold
@@ -76,7 +87,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     height: 26,
                   ),
                   Text(
-                    'Dflash motto maju \nMaju terus',
+                    subtitles[currentIndex],
                     style: greenTextStyle.copyWith(
                       fontSize: 16
                     ),
