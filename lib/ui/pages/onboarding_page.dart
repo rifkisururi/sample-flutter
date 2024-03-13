@@ -93,9 +93,57 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: currentIndex == 2 ? 38 : 50,
                   ),
+                  currentIndex == 2 ?
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: double.infinity, // mengikuti lebar container
+                        height: 50,
+                        child: TextButton(
+                          onPressed: () {
+                            carouselController.nextPage();
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: blueColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(56)
+                            )
+                          ),
+                          child: Text(
+                            'Mulai sekarang',
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 16,
+                              fontWeight: semiBold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: double.infinity, // mengikuti lebar container
+                        height: 50,
+                        child: TextButton(
+                          onPressed: () {
+                            //carouselController.nextPage();
+                          },
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero // menghapus padding
+                          ),
+                          child: Text(
+                            'Masuk',
+                            style: greenTextStyle.copyWith(
+                              fontSize: 16
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ) :
                   Row(
                     children: [
                       Container(
@@ -133,17 +181,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                       ),
                       const Spacer(), // mengisi ruang tersisa
-                      Container(
+                      SizedBox(
                         width: 150,
                         height: 50,
                         child: TextButton(
-                          child: Text(
-                            'Lanjutkan',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 16,
-                              fontWeight: semiBold,
-                            ),
-                          ),
                           onPressed: () {
                             carouselController.nextPage();
                           },
@@ -153,8 +194,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               borderRadius: BorderRadius.circular(56)
                             )
                           ),
+                          child: Text(
+                            'Lanjutkan',
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 16,
+                              fontWeight: semiBold,
+                            ),
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],
