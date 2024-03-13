@@ -95,7 +95,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: blueColor
+                          //color: blueColor
+                          color: currentIndex == 0 ? blueColor : greyColor
                         ),
                       ),
                       Container(
@@ -106,7 +107,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: greyColor
+                          color: currentIndex == 1 ? blueColor : greyColor
                         ),
                       ),
                       Container(
@@ -117,7 +118,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: greyColor
+                          color: currentIndex == 2 ? blueColor : greyColor
                         ),
                       ),
                       const Spacer(), // mengisi ruang tersisa
