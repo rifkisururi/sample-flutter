@@ -2,9 +2,17 @@ import 'package:app/shared/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPage extends StatelessWidget {
+class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
-  
+
+  @override
+  State<OnboardingPage> createState() => _OnboardingPageState();
+}
+
+class _OnboardingPageState extends State<OnboardingPage> {
+  int currentIndex = 0;
+  CarouselController carouselController = CarouselController();
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -31,8 +39,13 @@ class OnboardingPage extends StatelessWidget {
               options: CarouselOptions(
                 height: 331,
                 viewportFraction: 1, // agar gambar sebelum/ setelah nya tidak keliatan
-                enableInfiniteScroll: false // biar bisa mentok gambar nya, tidak looping
-              )
+                enableInfiniteScroll: false, // biar bisa mentok gambar nya, tidak looping
+                // ketika scroll ganti kata kata dibawah
+                onPageChanged: (index, reason) => setState(() {
+                  currentIndex = index;
+                }),
+              ),
+              carouselController: carouselController,
             ),
             const SizedBox(
               height: 80,
@@ -116,10 +129,12 @@ class OnboardingPage extends StatelessWidget {
                             'Lanjutkan',
                             style: whiteTextStyle.copyWith(
                               fontSize: 16,
-                              fontWeight: semiBold
+                              fontWeight: semiBold,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            carouselController.nextPage();
+                          },
                           style: TextButton.styleFrom(
                             backgroundColor: blueColor,
                             shape: RoundedRectangleBorder(
